@@ -81,7 +81,7 @@ module PuppetLanguageServer
 
         return nil if content.nil?
 
-        LSP::Hover.new('contents' => content)
+        LSP::Hover.new('contents' => LSP::MarkupContent.new('kind' => LSP::MarkupKind::MARKDOWN, 'value' => content))
       end
 
       def self.get_hover_content_for_access_expression(session_state, path, expr)

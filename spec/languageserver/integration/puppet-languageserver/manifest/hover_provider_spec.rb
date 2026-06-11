@@ -75,12 +75,12 @@ EOT
 
       it 'should find bolt specific data types' do
         result = subject.resolve(session_state, content, 1, 15, { :tasks_mode => true})
-        expect(result.contents).to start_with("**TargetSpec** Data Type Alias\n")
+        expect(result.contents.value).to start_with("**TargetSpec** Data Type Alias\n")
       end
 
       it 'should find bolt specific functions' do
         result = subject.resolve(session_state, content, 3, 36, { :tasks_mode => true})
-        expect(result.contents).to start_with("**get_targets** Function\n")
+        expect(result.contents.value).to start_with("**get_targets** Function\n")
       end
     end
 
@@ -140,7 +140,7 @@ EOT
           pending('Not implemented')
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**class** keyword\n")
+          expect(result.contents.value).to start_with("**class** keyword\n")
         end
       end
 
@@ -152,7 +152,7 @@ EOT
           pending('Not implemented')
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**class** keyword\n")
+          expect(result.contents.value).to start_with("**class** keyword\n")
         end
       end
 
@@ -164,7 +164,7 @@ EOT
           pending('Not implemented')
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**String** keyword\n")
+          expect(result.contents.value).to start_with("**String** keyword\n")
         end
       end
 
@@ -176,7 +176,7 @@ EOT
           pending('Not implemented')
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to eq('')
+          expect(result.contents.value).to eq('')
         end
       end
 
@@ -188,7 +188,7 @@ EOT
           pending('Not implemented')
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to eq('')
+          expect(result.contents.value).to eq('')
         end
       end
     end
@@ -209,7 +209,7 @@ EOT
         it 'should return resource description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**user** Resource\n")
+          expect(result.contents.value).to start_with("**user** Resource\n")
         end
       end
 
@@ -220,7 +220,7 @@ EOT
         it 'should return resource description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**user** Resource\n")
+          expect(result.contents.value).to start_with("**user** Resource\n")
         end
       end
 
@@ -231,7 +231,7 @@ EOT
         it 'should return resource description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**user** Resource\n")
+          expect(result.contents.value).to start_with("**user** Resource\n")
         end
       end
 
@@ -242,7 +242,7 @@ EOT
         it 'should return property description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**ensure** Property\n")
+          expect(result.contents.value).to start_with("**ensure** Property\n")
         end
       end
 
@@ -253,7 +253,7 @@ EOT
         it 'should return property description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**ensure** Property\n")
+          expect(result.contents.value).to start_with("**ensure** Property\n")
         end
       end
 
@@ -264,7 +264,7 @@ EOT
         it 'should return parameter description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**name** Parameter\n")
+          expect(result.contents.value).to start_with("**name** Parameter\n")
         end
       end
 
@@ -275,7 +275,7 @@ EOT
         it 'should return parameter description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**name** Parameter\n")
+          expect(result.contents.value).to start_with("**name** Parameter\n")
         end
       end
     end
@@ -298,7 +298,7 @@ EOT
         it 'should return resource description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**mock_workspace_class** Resource\n")
+          expect(result.contents.value).to start_with("**mock_workspace_class** Resource\n")
         end
       end
 
@@ -309,7 +309,7 @@ EOT
         it 'should return resource description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**mock_workspace_class** Resource\n")
+          expect(result.contents.value).to start_with("**mock_workspace_class** Resource\n")
         end
       end
 
@@ -320,7 +320,7 @@ EOT
         it 'should return resource description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**mock_workspace_class** Resource\n")
+          expect(result.contents.value).to start_with("**mock_workspace_class** Resource\n")
         end
       end
 
@@ -331,7 +331,7 @@ EOT
         it 'should return resource description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**mock_workspace_class** Resource\n")
+          expect(result.contents.value).to start_with("**mock_workspace_class** Resource\n")
         end
       end
 
@@ -342,7 +342,7 @@ EOT
         it 'should return parameter description' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**attr_name1** Parameter\n")
+          expect(result.contents.value).to start_with("**attr_name1** Parameter\n")
         end
       end
 
@@ -352,7 +352,7 @@ EOT
 
         it 'should return parameter description' do
           result = subject.resolve(session_state, content, line_num, char_num)
-          expect(result.contents).to start_with("**attr_name1** Parameter\n")
+          expect(result.contents.value).to start_with("**attr_name1** Parameter\n")
         end
       end
     end
@@ -372,7 +372,7 @@ EOT
         it 'should return fact information' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**operatingsystem** Fact\n")
+          expect(result.contents.value).to start_with("**operatingsystem** Fact\n")
         end
       end
 
@@ -383,7 +383,7 @@ EOT
         it 'should return fact information' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**operatingsystem** Fact\n")
+          expect(result.contents.value).to start_with("**operatingsystem** Fact\n")
         end
       end
 
@@ -394,7 +394,7 @@ EOT
         it 'should return fact information' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**operatingsystem** Fact\n")
+          expect(result.contents.value).to start_with("**operatingsystem** Fact\n")
         end
       end
 
@@ -405,7 +405,7 @@ EOT
         it 'should return fact information' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**operatingsystem** Fact\n")
+          expect(result.contents.value).to start_with("**operatingsystem** Fact\n")
         end
       end
     end
@@ -424,7 +424,7 @@ EOT
         it 'should return function information' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**split** Function\n")
+          expect(result.contents.value).to start_with("**split** Function\n")
         end
       end
     end
@@ -449,7 +449,7 @@ class firewall {
           pending("(PUP-7668) parser is assigning an incorrect offset")
 
           result = subject.resolve(session_state, content, line_num, char_num)
-          expect(result.contents).not_to start_with("**service** Resource\n")
+          expect(result.contents.value).not_to start_with("**service** Resource\n")
         end
       end
 
@@ -459,7 +459,7 @@ class firewall {
         it 'should complete to service resource documentation' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**service** Resource\n")
+          expect(result.contents.value).to start_with("**service** Resource\n")
         end
       end
     end
@@ -483,7 +483,7 @@ class module::foo (
         it 'should complete an inbuilt Puppet type' do
           result = subject.resolve(session_state, content, line_num, char_num)
 
-          expect(result.contents).to start_with("**String** Data Type\n")
+          expect(result.contents.value).to start_with("**String** Data Type\n")
         end
       end
     end
